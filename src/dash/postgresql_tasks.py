@@ -14,9 +14,9 @@ class PostgresTasks:
         column_names: list of columns to select
         additional_operations: further commands for the PostgreSQL query (i.e. "ORDER BY time DESC LIMIT 10000")
         """
-        command = f"SELECT {', '.join(column_names} FROM {table_name}"
+        command = f"SELECT {', '.join(column_names)} FROM {table_name}"
         if additional_operations:
-        	       command = f"SELECT {', '.join(column_names} FROM {table_name} {additional_operations}"
+        	       command = f"SELECT {', '.join(column_names)} FROM {table_name} {additional_operations}"
         conn = None
         try:
             # read the connection parameters
