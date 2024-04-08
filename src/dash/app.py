@@ -31,7 +31,7 @@ app.layout = html.Div([
 #@callback(
    # Output(component_id='my-final-graph-example', component_property='figure'),
 #    Input(component_id='my-final-radio-item-example', component_property='value')
-)
+#)
 #def update_graph(col_chosen):
 #    fig = px.histogram(df, x='continent', y=col_chosen, histfunc='avg')
 #    return fig
