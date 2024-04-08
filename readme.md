@@ -12,13 +12,12 @@
 
 `pip install pandas`
 
-`pip install yaml`
+`pip install pyyaml`
 
-`pip install psycopg2`
+`pip install psycopg2-binary`
 
 ###
 starting a local dash server.
 using
 `python -m src.dash.app`
 in the root directory.
-
