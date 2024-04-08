@@ -41,5 +41,7 @@ class PostgresTasks:
 # to test a specific function via "python postgresql_tasks.py" in the powershell
 if __name__ == "__main__":
     postgres_task = PostgresTasks()
-    postgres_task.psql_to_df("nibe", ["data_id", "time", "momentan_verwendete_leistung", "brauchwasser_nur_verdichter", "heizung_nur_verdichter"])
+    df = postgres_task.psql_to_df("nibe", ["data_id", "time", "momentan_verwendete_leistung", "brauchwasser_nur_verdichter", "heizung_nur_verdichter"])
+    print(df.info())
+    print(df.head())
 #
