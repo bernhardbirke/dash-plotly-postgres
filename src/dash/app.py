@@ -2,13 +2,18 @@
 from dash import Dash, html, dash_table, dcc, callback, Output, Input
 import pandas as pd
 import plotly.express as px
+from src.dash.config import Configuration
 from src.dash.postgresql_tasks import PostgresTasks
 
 # Incorporate data
 df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/gapminder2007.csv')
 
-table_name = "nibe"
-columns = ["data_id", "time", "momentan_verwendete_leistung", "brauchwasser_nur_verdichter", "heizung_nur_verdichter"]
+config = Configuration()
+yaml_data = config.yaml_config()
+
+table_name = yaml_data["table_name"]
+columns = yaml_data["columns"]
+
 
 postgres_task = PostgresTasks()
 df = postgres_task.psql_to_df(table_name, columns)
@@ -23,7 +28,7 @@ app.layout = html.Div([
     html.Div(children='Load postgresql data'),
     html.Hr(),
  #   dcc.RadioItems(options=['pop', 'lifeExp', 'gdpPercap'], value='lifeExp', id='my-final-radio-item-example'),
-    dash_table.DataTable(data=df.to_dict('records'), page_size=10),
+    dash_table.DataTable(data=df.to_dict('records'), page_size=30),
 #    dcc.Graph(figure={}, id='my-final-graph-example')
 ])
 

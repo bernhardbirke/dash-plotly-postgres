@@ -1,0 +1,8 @@
+table_name: nibe
+
+columns:
+  - data_id
+  - time
+  - momentan_verwendete_leistung
+  - brauchwasser_nur_verdichter
+  - heizung_nur_verdichter
